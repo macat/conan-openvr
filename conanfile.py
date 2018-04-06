@@ -17,7 +17,7 @@ class OpenvrConan(ConanFile):
     branch = "v" + version
 
     def source(self):
-        self.run("git clone https://github.com/ValveSoftware/openvr.git -b {branch} --depth 1")
+        self.run("git clone https://github.com/ValveSoftware/openvr.git -b {branch} --depth 1".format(branch=self.branch))
 
     def build(self):
         cmake = CMake(self)
