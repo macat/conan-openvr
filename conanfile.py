@@ -7,14 +7,14 @@ class OpenvrConan(ConanFile):
     requiring that applications have specific knowledge of the hardware they are targeting.
     """
     name = "openvr"
-    version = "1.0.13"
+    version = "1.0.14"
     license = "https://github.com/ValveSoftware/openvr/blob/master/LICENSE"
     url = "https://gitlab.com/HeiGameStudio/ArsenEngine/dependencies/conan-openvr"
     description = __doc__
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    branch = "v1.0.13"
+    branch = "v" + version
 
     def source(self):
         self.run("git clone https://github.com/ValveSoftware/openvr.git -b {branch} --depth 1")
@@ -51,13 +51,13 @@ class OpenvrConan(ConanFile):
             else:
                 postfix += "/Release"
 
-        lib_folder_name = "openvr/lib/" + postfix
+        lib_folder_name = "openvr-build/lib/" + postfix
 
         self.copy("*.so", dst="lib", src=lib_folder_name, keep_path=False)
         self.copy("*.lib", dst="lib", src=lib_folder_name, keep_path=False)
         self.copy("*.a", dst="lib", src=lib_folder_name, keep_path=False)
 
-        bin_folder_name = "openvr/bin/" + postfix
+        bin_folder_name = "openvr-build/bin/" + postfix
 
         self.copy("*.dylib", dst="lib", src=bin_folder_name, keep_path=False)
         self.copy("*.lib", dst="lib", src=bin_folder_name, keep_path=False)
