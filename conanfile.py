@@ -14,7 +14,7 @@ class OpenvrConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    branch = version
+    branch = ("v" if version != "master" else "") + version
 
     def source(self):
         self.run("git clone https://github.com/ValveSoftware/openvr.git -b {branch} --depth 1".format(branch=self.branch))
