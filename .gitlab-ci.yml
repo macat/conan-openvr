@@ -1,10 +1,11 @@
 
 variables:
     CONAN_USERNAME: "arsen-studio"
-    CONAN_REFERENCE: "openvr/1.0.14"
+    CONAN_REFERENCE: "openvr/master"
     CONAN_CHANNEL: "testing"
     CONAN_STABLE_BRANCH_PATTERN: "release/*"
     CONAN_UPLOAD: "https://api.bintray.com/conan/arsen-studio/arsen-deps"
+    CONAN_UPLOAD_ONLY_WHEN_STABLE: "1"
 
 .build-template: &build-template
     before_script:

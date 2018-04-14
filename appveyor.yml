@@ -5,11 +5,12 @@ environment:
     PYTHON_VERSION: "2.7.8"
     PYTHON_ARCH: "32"
 
-    CONAN_REFERENCE: "openvr/1.0.14"
+    CONAN_REFERENCE: "openvr/master"
     CONAN_UPLOAD: "https://api.bintray.com/conan/arsen-studio/arsen-deps"
     CONAN_USERNAME: "arsen-studio"
     CONAN_CHANNEL: "testing"
     CONAN_STABLE_BRANCH_PATTERN: "release/*"
+    CONAN_UPLOAD_ONLY_WHEN_STABLE: "1"
 
     VS150COMNTOOLS: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\Tools\\"
     
