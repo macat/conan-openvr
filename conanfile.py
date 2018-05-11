@@ -28,10 +28,10 @@ class OpenvrConan(ConanFile):
     branch = ("v" if version != "master" else "") + version
 
     def source(self):
-        downloader = SourceDownloader()
+        downloader = SourceDownloader(self)
 
-        downloader.addRepository(GitRepository("https://github.com/ValveSoftware/openvr.git", branch=self.branch))
-        downloader.addRepository(GithubRepository("ValveSoftware/openvr", self.branch))
+        downloader.addRepository(GitRepository(self, "https://github.com/ValveSoftware/openvr.git", branch=self.branch))
+        downloader.addRepository(GithubRepository(self, "ValveSoftware/openvr", self.branch))
 
         downloader.get(self.source_subfolder)
 
