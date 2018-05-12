@@ -37,7 +37,7 @@ class OpenvrConan(ConanFile):
 
     def _configure_cmake(self):
         cmake = CMake(self)
-        cmake.configure(source_folder=self.source_subfolder, build_folder=self.build_subfolder, defs={
+        cmake.configure(build_folder=self.build_subfolder, defs={
             "BUILD_SHARED": self.options.shared,
             "USE_LIBCXX": hasattr(self.settings.compiler, "libcxx") and self.settings.compiler.libcxx
         })
