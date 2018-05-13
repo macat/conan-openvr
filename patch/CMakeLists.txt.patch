@@ -1,0 +1,11 @@
+--- src/CMakeLists.txt	2018-05-13 12:29:47.404092341 +0200
++++ src/CMakeLists.txt	2018-05-13 12:32:11.000000000 +0200
+@@ -22,7 +22,7 @@
+ endif()
+ 
+ # Add include folders.
+-include_directories(${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/headers ${CMAKE_SOURCE_DIR}/src/vrcommon)
++include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../headers ${CMAKE_CURRENT_SOURCE_DIR}/vrcommon)
+ 
+ if(USE_CUSTOM_LIBCXX)
+ 	link_directories(

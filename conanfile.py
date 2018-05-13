@@ -35,6 +35,8 @@ class OpenvrConan(ConanFile):
 
         downloader.get(self.source_subfolder)
 
+        tools.patch(patch_file="patch/CMakeLists.txt.patch", base_path=self.source_subfolder)
+
     def _configure_cmake(self):
         cmake = CMake(self)
         cmake.configure(build_folder=self.build_subfolder, defs={
