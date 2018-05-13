@@ -12,7 +12,7 @@ class OpenvrConan(ConanFile):
 
     license = "BSD 3-Clause"
 
-    exports = ["LICENSE.md"]
+    exports = ["LICENSE.md", "utils/*", "patch/*"]
 
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
