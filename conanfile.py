@@ -55,4 +55,4 @@ class OpenvrConan(ConanFile):
         self.copy("*.h", dst="include", src=self.source_subfolder + "/headers/")
 
     def package_info(self):
-        self.cpp_info.libs = tools.collect_libs(self)
+        self.cpp_info.libs = tools.collect_libs(self) + ["dl"]
