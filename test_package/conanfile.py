@@ -22,4 +22,4 @@ class ReuseConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             os.chdir("bin")
-            self.run(".%stest" % os.sep)
+            self.run(".%stest_package" % os.sep)
