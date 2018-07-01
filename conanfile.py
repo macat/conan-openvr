@@ -38,12 +38,11 @@ class OpenvrConan(ConanFile):
         tools.patch(patch_file="patch/CMakeLists.txt.patch", base_path=self.source_subfolder)
 
     def _configure_cmake(self):
-        self.output.info("libcxx: " + str(hasattr(self.settings.compiler, "libcxx") and self.settings.compiler.libcxx))
-        self.output.info("libcxx: " + str(self.settings.compiler.libcxx))
+        self.output.info("libcxx: " + str(hasattr(self.settings.compiler, "libcxx") and self.settings.compiler.libcxx == "libc++"))
         cmake = CMake(self)
         cmake.configure(build_folder=self.build_subfolder, defs={
             "BUILD_SHARED": self.options.shared,
-            "USE_LIBCXX": hasattr(self.settings.compiler, "libcxx") and self.settings.compiler.libcxx
+            "USE_LIBCXX": hasattr(self.settings.compiler, "libcxx") and self.settings.compiler.libcxx == "libc++"
         })
         return cmake
 
